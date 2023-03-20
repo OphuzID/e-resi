@@ -1,0 +1,20 @@
+Hal yang harus diperhatikan untuk codeigniter v.4.0 :
+1. untuk melakukan konfigurasi Database bisa menggunkan file "env".
+   dengan merubah namanya menjadi ".env" kemudian lakukan setup berikut
+	a. CI_ENVIRONMENT = development
+	b.  database.default.hostname = localhost
+ 	    database.default.database = e_sicepat
+ 	    database.default.username = root
+ 	    database.default.password = 
+ 	    database.default.DBDriver = MySQLi
+2. untuk membuat Base URL 
+	a. Buka file Constants.php (App/Config/Constant.php)
+	   kemdian tambahkan pada baris akhir seperti berikut
+	   =======================================================
+	   $base = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']) : 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']);
+	   defined('BASE') || define('BASE', $base);
+	   =======================================================
+	b. Kemudian buka file App.php pada folder yang sama dan edit menjadi
+	   public $baseURL = BASE
+3. Membuat Template
+	a. 
